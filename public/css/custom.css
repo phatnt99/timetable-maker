@@ -1,0 +1,48 @@
+ul.inline,
+ul.links.inline,
+ul.links.inline li {
+    margin-left: 0;
+    padding-left: 0
+}
+tr.even,
+tr.odd {
+    border-bottom: 1px solid #ddd;
+    background-color: transparent
+}
+
+th,
+td {
+    padding: .1em;
+    border: 1px solid #000000
+}
+
+.rowspan_data {
+    background-color: #fff;
+    text-align: center;
+    width: 230px
+}
+
+.back {
+    background-color: darkgrey;
+}
+
+#tuitucode table thead tr {
+    background-color: #EEEEEE
+}
+
+#tuitucode table thead tr th {
+    text-align: center;
+    width: 3%
+}
+#tuitucode table tr td {
+    width: 12%
+}
+#tuitucode table tr td.center_cell_data {
+    font-weight: bold;
+    text-align: center
+}
+#tuitucode table tr.odd,
+#tuitucode table tr.even {
+    background: #CCCCCC!important
+}
+

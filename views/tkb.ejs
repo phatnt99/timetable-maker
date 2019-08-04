@@ -1,0 +1,107 @@
+<div class="row">
+<div class="col-lg-6">
+        <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h4 class="m-0 font-weight-bold text-primary">Thông báo lỗi</h4>
+                </div>
+                <div class="card-body">
+        <% var errr = Array(); %>
+        <% if(data3.length > 0) {%>
+            <%data3.forEach(function(obj) {%>
+                <div class="card bg-danger text-white shadow">
+                    <div class="card-body">
+                        <% errr.push(obj.obj1);%>
+                        <% errr.push(obj.obj2);%>
+                        <strong>Lưu ý:</strong> Không đăng kí được lớp <strong><%= obj.obj1.C %> (Thứ <%= obj.obj1.K %> - Tiết:<%= obj.obj1.L %>)</strong> và <strong><%= obj.obj2.C %> (Thứ <%= obj.obj1.K %> - Tiết:<%= obj.obj1.L %>)</strong> Lý do: <strong>trùng lịch</strong>.
+                    </div>
+                </div>
+            <%});%>
+        <%} else {%>
+                Không có thông báo!
+        <%};%>
+    </div>
+</div>  
+</div>
+<div class="col-lg-6">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h4 class="m-0 font-weight-bold text-primary">Thông tin đăng kí</h4>
+            </div>
+            <div class="card-body">
+                <div>
+                        <h6 class="m-0 font-weight-bold text-primary">Các môn đã đăng kí:</h6>
+                        <ul>
+                            <% var tongtc = 0;%>
+                            <%data2.forEach(function(obj) {%>
+                            <% if(errr.includes(obj) == false) {%>
+                            <li><%= obj.C %></li>
+                            <% tongtc += obj.H %>
+                            <%};%>
+                            <%});%>
+                        </ul>
+                </div>
+                <div>
+                        <h6 class="m-0 font-weight-bold text-primary">Tổng tín chỉ: <%= tongtc %></h6>
+                </div>
+            </div>
+            <div class="card-footer">
+                Thông số dựa trên lịch dự kiến của daa.edu.vn.
+            </div>
+        </div>  
+</div>
+</div>
+<div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h4 class="m-0 font-weight-bold text-primary text-center">Thời khóa biểu</h4>
+        </div>
+<div class="card-body">
+<div class="table-responsive" id="tuitucode">
+        <table width="100%" style="font-size:1em;color: black" class="sticky-enabled">
+        <thead>
+        <tr>
+        <th>Thứ/<br>tiết</th>
+        <th>Thứ 2</th>
+        <th>Thứ 3</th>
+        <th>Thứ 4</th>
+        <th>Thứ 5</th>
+        <th>Thứ 6</th>
+        <th>Thứ 7</th>
+        </tr>
+        </thead>
+        <tbody class="back">
+            <%for(var i=0; i < 10; i++) {%>
+                <tr>
+                <td class="center_cell_data"><%= tiet[i].name %><br /><%= tiet[i].time %></td>
+                <% for(var j = 0; j < 6; j++) {%>
+                    <% if(data[i][j] === 0) {%>
+                        <td></td>
+                    <%} else if(data[i][j] == -1) {%>
+                    <%} else {%>
+                        <% data2.forEach(function(obj) {%>
+                            <% if(data[i][j] === obj.C && obj.I != 'HT2' ) {%>
+                                <td rowspan="<%= obj.L.length %>" class="rowspan_data">
+                                        <strong><%= obj.C %></strong><br /><%= obj.D %><br /><strong><%= obj.F %></strong><br /><%= obj.N %><br />BĐ: <%= obj.T %><br />KT: <%= obj.U %><br />
+                                </td>
+                            <%};%>
+                        <%});%>
+                    <%};%>
+
+                <%};%>
+                </tr>
+            <%};%>
+            <% data2.forEach(function(obj) {%>
+                <tr>
+                            <% if(obj.I == 1 && obj.J == 'HT2') {%>
+                                <td colspan="7" class="rowspan_data">
+                                        <strong><%= obj.C %></strong><br /><%= obj.D %><br /><strong><%= obj.F %></strong><br /><%= obj.N %><br />BĐ: <%= obj.T %><br />KT: <%= obj.U %><br />
+                                </td>
+                            <%};%>
+                </tr>
+            <%});%>
+
+        </tbody>
+        </table>
+        <br />
+</div>
+</div>
+</div>

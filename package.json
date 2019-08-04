@@ -1,0 +1,19 @@
+{
+  "name": "timetable",
+  "version": "1.0.0",
+  "description": "timetable for UIT",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Phat Nguyen",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "convert-excel-to-json": "^1.6.1",
+    "ejs": "^2.6.2",
+    "exceljs": "^1.14.0",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1"
+  }
+}
