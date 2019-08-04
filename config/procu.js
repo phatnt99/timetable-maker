@@ -139,7 +139,7 @@ data.forEach(element => {
         }
     }
     }
-    else {
+    else if(element.J != 'HT2') {
         var loi = {
             obj1: element,
             obj2: "404"
