@@ -83,6 +83,15 @@ function isTrungTiet(obj1, obj2)
     }
     return false;
 }
+function loc(data, key) {
+    for(var i =0; i < data.length; i++) {
+        if(key.C == data[i].C) {
+            return false;
+        }
+    }
+    return true;
+}
+
 
 module.exports = function(data) {
     // Create one dimensional array 
@@ -132,7 +141,7 @@ data.forEach(element => {
     var xx = fetchdt(element);
     if(xx.row != -1 && xx.col != -1)
     {
-        if(mangLoiObj.includes(element) == false) {
+        if(loc(mangLoiObj, element) == true) {
         mang[xx.row][xx.col] = xx.ma + "-" + xx.stt;
 
         for(var i = 1; i < element.L.length; i++) {

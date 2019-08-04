@@ -16,6 +16,7 @@ var ji = require("./config/tojson");
 var processData = require("./config/create");
 var proc = require("./config/procu");
 var checkTrung = require("./config/check");
+var last = require("./config/dadangki");
 
 //cấu hình định tuyết (routed)
 app.get("/",function(req, res) {
@@ -70,9 +71,11 @@ app.post("/nhandulieu", function(req, res) {
 
     var ret2 = proc(ret);
     var ts = checkTrung(ret);
-    res.render("tkb", {data : ret2.yes, tiet: tiet, data2 : ret, data3 : ret2.no, data4 : ts});
+    var dangki = last(ret2.no, ts);
 
-    //res.send(ts);
+    res.render("tkb", {data : ret2.yes, tiet: tiet, data2 : ret, data3 : ret2.no, data4 : ts, data5 : dangki});
+
+    //res.send(dangki);
 })
 
 app.listen(port, function() {

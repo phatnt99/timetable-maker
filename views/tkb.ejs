@@ -41,11 +41,9 @@
                         <h6 class="m-0 font-weight-bold text-primary">Các môn đã đăng kí:</h6>
                         <ul>
                             <% var tongtc = 0;%>
-                            <%data4.forEach(function(obj) {%>
-                            <% if(errr.includes(obj) == false) {%>
+                            <%data5.forEach(function(obj) {%>
                             <li><%= obj.C %></li>
                             <% tongtc += obj.H %>
-                            <%};%>
                             <%});%>
                         </ul>
                 </div>
