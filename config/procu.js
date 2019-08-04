@@ -129,13 +129,22 @@ for(var i =0; i < data.length - 1; i++)
 
 data.forEach(element => {
     var xx = fetchdt(element);
-    if(xx.row != -1 && xx.col != -1 && mangLoiObj.includes(element) == false)
+    if(xx.row != -1 && xx.col != -1)
     {
+        if(mangLoiObj.includes(element) == false) {
         mang[xx.row][xx.col] = xx.ma;
 
         for(var i = 1; i < element.L.length; i++) {
             mang[xx.row + i][xx.col] = -1;
         }
+    }
+    }
+    else {
+        var loi = {
+            obj1: element,
+            obj2: "404"
+        }
+        mangLoi.push(loi);
     }
 
 });

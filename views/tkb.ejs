@@ -8,13 +8,22 @@
         <% var errr = Array(); %>
         <% if(data3.length > 0) {%>
             <%data3.forEach(function(obj) {%>
+                <% if(obj.obj2 == '404') {%>
+                 <div class="card bg-danger text-white shadow">
+                    <div class="card-body">
+                        <strong>Lưu ý:</strong> Lớp <strong><%= obj.obj1.C %> (Thứ <%= obj.obj1.K %> - Tiết:<%= obj.obj1.L %>)</strong> được đăng kí nhưng không có trong thời khóa biểu. 
+                        <br>Lý do: <strong>lịch học không rõ ràng.</strong>.
+                    </div>
+                </div>                   
+                <%} else {%>
                 <div class="card bg-danger text-white shadow">
                     <div class="card-body">
                         <% errr.push(obj.obj1);%>
                         <% errr.push(obj.obj2);%>
-                        <strong>Lưu ý:</strong> Không đăng kí được lớp <strong><%= obj.obj1.C %> (Thứ <%= obj.obj1.K %> - Tiết:<%= obj.obj1.L %>)</strong> và <strong><%= obj.obj2.C %> (Thứ <%= obj.obj1.K %> - Tiết:<%= obj.obj1.L %>)</strong> Lý do: <strong>trùng lịch</strong>.
+                        <strong>Lưu ý:</strong> Không đăng kí được lớp <strong><%= obj.obj1.C %> (Thứ <%= obj.obj1.K %> - Tiết:<%= obj.obj1.L %>)</strong> và <strong><%= obj.obj2.C %> (Thứ <%= obj.obj1.K %> - Tiết:<%= obj.obj1.L %>)</strong><br> Lý do: <strong>trùng lịch</strong>.
                     </div>
                 </div>
+                <%};%>
             <%});%>
         <%} else {%>
                 Không có thông báo!
