@@ -68,6 +68,7 @@ function fetchdt(obj)
     }
 
     vale.ma = obj.C;
+    vale.stt = obj.A;
 
     return vale;
 
@@ -132,7 +133,7 @@ data.forEach(element => {
     if(xx.row != -1 && xx.col != -1)
     {
         if(mangLoiObj.includes(element) == false) {
-        mang[xx.row][xx.col] = xx.ma;
+        mang[xx.row][xx.col] = xx.ma + "-" + xx.stt;
 
         for(var i = 1; i < element.L.length; i++) {
             mang[xx.row + i][xx.col] = -1;

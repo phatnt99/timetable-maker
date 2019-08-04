@@ -15,6 +15,7 @@ var excel = require("./config/readtkb");
 var ji = require("./config/tojson");
 var processData = require("./config/create");
 var proc = require("./config/procu");
+var checkTrung = require("./config/check");
 
 //cấu hình định tuyết (routed)
 app.get("/",function(req, res) {
@@ -43,6 +44,7 @@ app.post("/nhandulieu", function(req, res) {
     var monhoc = xxx.split('\n');
     //monhoc = Array.from(req.body.data).s;
     var ret = processData(monhoc, array);
+
     var tiet = [
         {name: "Tiết 1",
         time: "(7:30 - 8:15)"},
@@ -67,10 +69,10 @@ app.post("/nhandulieu", function(req, res) {
     ];
 
     var ret2 = proc(ret);
+    var ts = checkTrung(ret);
+    res.render("tkb", {data : ret2.yes, tiet: tiet, data2 : ret, data3 : ret2.no, data4 : ts});
 
-    res.render("tkb", {data : ret2.yes, tiet: tiet, data2 : ret, data3 : ret2.no});
-
-    //res.send(ret2.no);
+    //res.send(ts);
 })
 
 app.listen(port, function() {
