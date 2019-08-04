@@ -38,7 +38,7 @@ app.get("/tkb", function(req, res) {
 
 
 app.post("/nhandulieu", function(req, res) {
-    var array = ji("D:\\data2.xlsx");
+    var array = ji("./public/data2.xlsx");
     var xxx = req.body.data;
     var monhoc = xxx.split('\n');
     //monhoc = Array.from(req.body.data).s;
