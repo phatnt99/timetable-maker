@@ -24,23 +24,16 @@ app.get("/",function(req, res) {
 })
 
 app.get("/tool", function(req, res) {
-    var data = ji("./public/data2.xlsx");
-    var hello = "halo";
-    res.render("tool", {datat : data});
+    res.render("tool");
 })
 
 app.get("/danhsach", function(req, res) {
-    var data = ji("./public/data2.xlsx");
+    var data = ji("./public/bigdata.xlsx");
     res.render("danhsach", {datat : data});
 })
 
-app.get("/tkb", function(req, res) {
-    res.render("tkb");
-})
-
-
 app.post("/nhandulieu", function(req, res) {
-    var array = ji("./public/data2.xlsx");
+    var array = ji("./public/bigdata.xlsx");
     var xxx = req.body.data;
     var monhoc = xxx.split('\n');
     //monhoc = Array.from(req.body.data).s;
@@ -75,7 +68,7 @@ app.post("/nhandulieu", function(req, res) {
 
     res.render("tkb", {data : ret2.yes, tiet: tiet, data2 : ret, data3 : ret2.no, data4 : ts, data5 : dangki});
 
-    //res.send(dangki);
+    //res.send(ret);
 })
 
 app.listen(port, function() {

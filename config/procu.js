@@ -1,13 +1,16 @@
 
 function fetchdt(obj)
 {
+    var tam = obj.L.toString();
+    var tiet = tam[0];
+    var thu = obj.K.toString();
     var vale = {
         row: "",
         col: "",
         ma: ""
     }
 
-    switch (obj.L[0]) {
+    switch (tiet) {
         case '1':
             vale.row = 0;
             break;
@@ -43,7 +46,7 @@ function fetchdt(obj)
             break;
     }
 
-    switch (obj.K) {
+    switch (thu) {
         case '2':
             vale.col = 0;
             break;
@@ -141,10 +144,11 @@ data.forEach(element => {
     var xx = fetchdt(element);
     if(xx.row != -1 && xx.col != -1)
     {
+
         if(loc(mangLoiObj, element) == true) {
         mang[xx.row][xx.col] = xx.ma + "-" + xx.stt;
 
-        for(var i = 1; i < element.L.length; i++) {
+        for(var i = 1; i < (element.L.toString()).length; i++) {
             mang[xx.row + i][xx.col] = -1;
         }
     }

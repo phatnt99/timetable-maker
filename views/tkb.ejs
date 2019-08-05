@@ -87,9 +87,10 @@
                         <% data2.forEach(function(obj, index) {%>
                             <% var valuee =  data[i][j].split("-");%>
                             <% if(valuee[0] == obj.C && obj.I != 'HT2' && valuee[1] == obj.A ) {%>
-                                <td rowspan="<%= obj.L.length %>" class="rowspan_data">
-                                        <strong><%= obj.C %></strong><br /><%= obj.D %><br /><strong><%= obj.F %></strong><br /><%= obj.N %><br />BĐ: <%= obj.T %><br />KT: <%= obj.U %><br />
-                                </td>
+                                <% var span = (obj.L.toString()).length; %>
+                                <td rowspan="<%= span %>" class="rowspan_data">
+                                    <strong><%= obj.C %></strong><br /><%= obj.D %><br /><strong><%= obj.F %></strong><br /><%= obj.N %><br />BĐ: <%= obj.T %><br />KT: <%= obj.U %><br />
+                            </td>
                             <%};%>
                         <%});%>
                     <%};%>
