@@ -6,6 +6,7 @@ module.exports = function (monhoc, array) {
     var ret = Array();
 
     monhoc.forEach(mon => {
+        mon = mon.trim();
         root.forEach(obj => {
             if(mon == obj.C)
             {

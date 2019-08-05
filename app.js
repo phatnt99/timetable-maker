@@ -68,7 +68,7 @@ app.post("/nhandulieu", function(req, res) {
 
     res.render("tkb", {data : ret2.yes, tiet: tiet, data2 : ret, data3 : ret2.no, data4 : ts, data5 : dangki});
 
-    //res.send(ret);
+    //res.send(monhoc);
 })
 
 app.listen(port, function() {
